@@ -17,6 +17,14 @@ function addTask(){
 }
 
 
+//edit task-edit button
+function editTask(index){
+    const newTask = prompt('Edit task', tasks [index]);
+    console.log(newTask);
+    tasks[index]=newTask.trim();
+    displayTask();
+}
+
 //remove task ---- delet button
 function removeTask(index){
     tasks.splice(index,1);
@@ -34,8 +42,10 @@ function displayTask(){
             <div class ="task-item">
                 <span class="task-text"> ${i+1}. ${tasks [i]}</span>
                 <div class="button-group">
-                    <button class="delete-btn" onclick="removeTask()">Delete</button>
+                    <button class="edit-btn" onclick="editTask(${i})">Edit</button>
+                    <button class="delete-btn" onclick="removeTask(${i})">Delete</button>
                 </div>
+                
             </div>
         
         
